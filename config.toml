@@ -1,6 +1,6 @@
 baseurl = "https://susandsblog.netlify.com/"
 languageCode = "en-us"
-title = "John Doe's blog"
+title = "Susan's DS Blog"
 # Define how many pages appear per site
 paginate = 10
 # Enable comments powered by Disqus by entering your disqus shortname
@@ -13,13 +13,13 @@ theme = "hugo-minimalist-theme"
 # with the hugo server command
 
 [params]
-    site_author = "John Doe"
-    site_description = "The awesome blog of John Doe."
-    location = "Earth"
+    site_author = "Susan Yurkewicz"
+    site_description = "Data Science material."
+    location = "Mercyhurst University"
     # Link custom assets relative to /static
     avatar = "img/profile-image.png"
     header_background = "img/desk.jpg"
-    header_title = "Customizable header title"
+    header_title = "Data Science with Susan Yurkewicz"
     copyright = "Powered by [Hugo](http://gohugo.io)."
     custom_css = []
     custom_js  = []
@@ -31,11 +31,11 @@ theme = "hugo-minimalist-theme"
     # Add your social network accounts to the profile section on the left
     # by entering your username. The links to your account will be
     # create automatically.
-    twitter   = "spf13"
+    twitter   = ""
     facebook  = ""
     linkedin  = ""
     behance   = ""
     dribbble  = ""
     instagram = ""
-    github    = "digitalcraftsman"
+    github    = "syurke60"
     gplus     = ""
