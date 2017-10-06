@@ -1,0 +1,37 @@
+---
+title: Time Series
+author: Susan Yurkewicz
+date: '2017-10-06'
+slug: time-series
+categories:
+  - R
+tags: []
+---
+
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+
+```
+Now we'll plot a Time Series Chart (which is two sets of data compared to each other but one set of data is time):
+
+```{r}
+query<-"SELECT HR,yearID 
+FROM Batting
+WHERE playerID='ruthba01'"
+result<-sqldf(query)
+```
+
+```{r}
+ggplot()+
+  geom_line(data=result,aes(x=yearID,y=HR))+
+  ggtitle("Babe Ruth's Homeruns Over The Span of His Career")+
+  xlab("Year")+
+  ylab("Number of Homeruns")
+
+  
+
+
+```
+

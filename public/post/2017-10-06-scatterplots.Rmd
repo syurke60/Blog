@@ -14,7 +14,7 @@ library(ggplot2)
 
 ```
 
-Welcome to my very first post regarding data science!  Let's start the ball rolling with a look at Scatterplots:
+Welcome to my very first post regarding data science!  Let's start the ball rolling with a look at Scatterplots (which is two sets of data compared to each other):
 ```{r}
 query<-"SELECT sum(HR) as careerHR, sum(SO) as careerSO 
 FROM Batting 

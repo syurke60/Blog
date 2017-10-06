@@ -68,13 +68,51 @@ library(sqldf)</p>
 
 <h2 id="warning-package-39-ggplot2-39-was-built-under-r-version-3-4-2">Warning: package &#39;ggplot2&#39; was built under R version 3.4.2</h2>
 
-<p>Welcome to my very first post regarding data science! Let’s start the ball rolling with a look at Scatterplots:
+<p>Welcome to my very first post regarding data science! Let’s start the ball rolling with a look at Scatterplots (which is two sets of data compared to each other):
 query&lt;-&quot;SELECT sum(HR) as careerHR, sum(SO) as careerSO FROM Batting GROUP BY playerID
 HAVING sum(HR)&gt;400&quot;
 result&lt;-sqldf(query)
 So excited, in the line above we’re looking at the extracted data!</p>
 &hellip;</p>
     <a href="https://susandsblog.netlify.com/post/scatterplots/" title="Scatterplots">Read more &raquo;</a>
+</article>
+
+        
+            <article class="post">
+    
+<h1><a href="https://susandsblog.netlify.com/post/time-series/" title="Time Series">Time Series</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.06">2017.10.06</time>
+
+    
+
+</span>
+</footer>
+
+    <p><p>library(Lahman)
+library(sqldf)</p>
+
+<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
+
+<h2 id="loading-required-package-proto">Loading required package: proto</h2>
+
+<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
+
+<p>library(ggplot2)</p>
+
+<h2 id="warning-package-39-ggplot2-39-was-built-under-r-version-3-4-2">Warning: package &#39;ggplot2&#39; was built under R version 3.4.2</h2>
+
+<p>Now we’ll plot a Time Series Chart (which is two sets of data compared to each other but one set of data is time):
+query&lt;-&quot;SELECT HR,yearID FROM Batting
+WHERE playerID=&#39;ruthba01&#39;&quot;
+result&lt;-sqldf(query)
+ggplot()+
+geom_line(data=result,aes(x=yearID,y=HR))+
+ggtitle(&quot;Babe Ruth&#39;s Homeruns Over The Span of His Career&quot;)+
+xlab(&quot;Year&quot;)+
+ylab(&quot;Number of Homeruns&quot;)</p>
+&hellip;</p>
+    <a href="https://susandsblog.netlify.com/post/time-series/" title="Time Series">Read more &raquo;</a>
 </article>
 
         
