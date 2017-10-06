@@ -45,110 +45,50 @@
         <article class="post">
             <a class="btn home" href="https://susandsblog.netlify.com/" title="Back to home">&laquo; Back to home</a>
             
-<h1><a href="https://susandsblog.netlify.com/post/hugo-is-for-lovers/" title="Hugo is for lovers">Hugo is for lovers</a></h1>
+<h1><a href="https://susandsblog.netlify.com/post/scatterplots/" title="Scatterplots">Scatterplots</a></h1>
 
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2015.08.03">2015.08.03</time>
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.06">2017.10.06</time>
 
-    &middot; Tagged in
-        
-        <a href="https://susandsblog.netlify.com/tags/hugo">hugo</a>
-        
     
 
 </span>
 </footer>
 
-            <h2 id="step-1-install-hugo">Step 1. Install Hugo</h2>
+            <pre class="r"><code>library(Lahman)
+library(sqldf)</code></pre>
+<pre><code>## Loading required package: gsubfn</code></pre>
+<pre><code>## Loading required package: proto</code></pre>
+<pre><code>## Loading required package: RSQLite</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.4.2</code></pre>
+<p>Welcome to my very first post regarding data science! Let’s start the ball rolling with a look at Scatterplots:</p>
+<pre class="r"><code>query&lt;-&quot;SELECT sum(HR) as careerHR, sum(SO) as careerSO 
+FROM Batting 
+GROUP BY playerID
+HAVING sum(HR)&gt;400&quot;
 
-<p>Goto <a href="https://github.com/spf13/hugo/releases">hugo releases</a> and download the
-appropriate version for your os and architecture.</p>
+result&lt;-sqldf(query)</code></pre>
+<p>So excited, in the line above we’re looking at the extracted data!</p>
+<pre class="r"><code>ggplot()+
+  geom_point(data=result,aes(x=careerSO,y=careerHR),size=4)+
+  ggtitle(&quot;Career Strikeouts and Career Homeruns&quot;)+
+  xlab(&quot;Career Strikeouts&quot;)+
+  ylab(&quot;Career Homeruns&quot;)</code></pre>
+<p><img src="/post/2017-10-06-scatterplots_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 
-<p>Save it somewhere specific as we will be using it in the next step.</p>
-
-<p>More complete instructions are available at <a href="/overview/installing/">installing hugo</a></p>
-
-<p></p>
-
-<h2 id="step-2-build-the-docs">Step 2. Build the Docs</h2>
-
-<p>Hugo has its own example site which happens to also be the documentation site
-you are reading right now.</p>
-
-<p>Follow the following steps:</p>
-
-<ol>
-<li>Clone the <a href="http://github.com/spf13/hugo">hugo repository</a></li>
-<li>Go into the repo</li>
-<li>Run hugo in server mode and build the docs</li>
-<li>Open your browser to <a href="http://localhost:1313">http://localhost:1313</a></li>
-</ol>
-
-<p>Corresponding pseudo commands:</p>
-
-<pre><code>git clone https://github.com/spf13/hugo
-cd hugo
-/path/to/where/you/installed/hugo server --source=./docs
-&gt; 29 pages created
-&gt; 0 tags index created
-&gt; in 27 ms
-&gt; Web Server is available at http://localhost:1313
-&gt; Press ctrl+c to stop
-</code></pre>
-
-<p>Once you&rsquo;ve gotten here, follow along the rest of this page on your local build.</p>
-
-<h2 id="step-3-change-the-docs-site">Step 3. Change the docs site</h2>
-
-<p>Stop the Hugo process by hitting ctrl+c.</p>
-
-<p>Now we are going to run hugo again, but this time with hugo in watch mode.</p>
-
-<pre><code>/path/to/hugo/from/step/1/hugo server --source=./docs --watch
-&gt; 29 pages created
-&gt; 0 tags index created
-&gt; in 27 ms
-&gt; Web Server is available at http://localhost:1313
-&gt; Watching for changes in /Users/spf13/Code/hugo/docs/content
-&gt; Press ctrl+c to stop
-</code></pre>
-
-<p>Open your <a href="http://vim.spf13.com">favorite editor</a> and change one of the source
-content pages. How about changing this very file to <em>fix the typo</em>. How about changing this very file to <em>fix the typo</em>.</p>
-
-<p>Content files are found in <code>docs/content/</code>. Unless otherwise specified, files
-are located at the same relative location as the url, in our case
-<code>docs/content/overview/quickstart.md</code>.</p>
-
-<p>Change and save this file.. Notice what happened in your terminal.</p>
-
-<pre><code>&gt; Change detected, rebuilding site
-
-&gt; 29 pages created
-&gt; 0 tags index created
-&gt; in 26 ms
-</code></pre>
-
-<p>Refresh the browser and observe that the typo is now fixed.</p>
-
-<p>Notice how quick that was. Try to refresh the site before it&rsquo;s finished building.. I double dare you.
-Having nearly instant feedback enables you to have your creativity flow without waiting for long builds.</p>
-
-<h2 id="step-4-have-fun">Step 4. Have fun</h2>
-
-<p>The best way to learn something is to play with it.</p>
             <ul class="share-buttons">
     <li>Share this article:</li>
     <li>
-        <a class="icon-facebook-squared" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fhugo-is-for-lovers%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook"></a>
+        <a class="icon-facebook-squared" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fscatterplots%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook"></a>
     </li>
     <li>
-        <a class="icon-twitter" href="https://twitter.com/share?text=Hugo%20is%20for%20lovers&amp;url=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fhugo-is-for-lovers%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Tweet this article"></a>
+        <a class="icon-twitter" href="https://twitter.com/share?text=Scatterplots&amp;url=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fscatterplots%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Tweet this article"></a>
     </li>
     <li>
-        <a class="icon-gplus" href="https://plus.google.com/share?url=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fhugo-is-for-lovers%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google&#43;"></a>
+        <a class="icon-gplus" href="https://plus.google.com/share?url=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fscatterplots%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google&#43;"></a>
     </li>
     <li>
-        <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fhugo-is-for-lovers%2f&title=Hugo%20is%20for%20lovers" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;" title="Share on Linkedin"></a>
+        <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fscatterplots%2f&title=Scatterplots" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;" title="Share on Linkedin"></a>
     </li>
 </ul>
 

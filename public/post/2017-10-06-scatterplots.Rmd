@@ -1,0 +1,37 @@
+---
+title: Scatterplots
+author: Susan Yurkewicz
+date: '2017-10-06'
+slug: scatterplots
+categories: []
+tags: []
+---
+
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+
+```
+
+Welcome to my very first post regarding data science!  Let's start the ball rolling with a look at Scatterplots:
+```{r}
+query<-"SELECT sum(HR) as careerHR, sum(SO) as careerSO 
+FROM Batting 
+GROUP BY playerID
+HAVING sum(HR)>400"
+
+result<-sqldf(query)
+```
+
+So excited, in the line above we're looking at the extracted data!
+
+```{r}
+ggplot()+
+  geom_point(data=result,aes(x=careerSO,y=careerHR),size=4)+
+  ggtitle("Career Strikeouts and Career Homeruns")+
+  xlab("Career Strikeouts")+
+  ylab("Career Homeruns")
+
+```
+
