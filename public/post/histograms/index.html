@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Susan&#39;s DS Blog &middot; Susan&#39;s DS Blog</title>
+        <title>Susan&#39;s DS Blog</title>
         <meta name="author">
         <meta name="description" content="Data Science material.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,12 +39,12 @@
           </div>
         </header>
 
+
 <div class="container clearfix">
     <main role="main" class="content">
-        
-        
-            <article class="post">
-    
+        <article class="post">
+            <a class="btn home" href="https://susandsblog.netlify.com/" title="Back to home">&laquo; Back to home</a>
+            
 <h1><a href="https://susandsblog.netlify.com/post/histograms/" title="Histograms">Histograms</a></h1>
 
 <footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.20">2017.10.20</time>
@@ -54,111 +54,67 @@
 </span>
 </footer>
 
-    <p>Histograms look at a single set of data. Many people think of histograms as a bar graph- that deal quantitative data.
-library(Lahman)
+            <p>Histograms look at a single set of data. Many people think of histograms as a bar graph- that deal quantitative data.</p>
+<pre class="r"><code>library(Lahman)
 library(sqldf)
-library(ggplot2)
-For an example we’ll create a histogram using all bodyweights of all baseball players.
-query&lt;-&quot;SELECT weight FROM Master&quot;
-result&lt;-sqldf(query)
-Now that we’ve selected our data we’re going to make it into a histogram.
-ggplot()+
-geom_histogram(data=result,aes(x=weight),color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
-ggtitle(&quot;Baseball Player Bodyweights&quot;)+
-xlab(&quot;Weight of Player&quot;)+
-ylab(&quot;Number of Players&quot;)</p>
+library(ggplot2)</code></pre>
+<p>For an example we’ll create a histogram using all bodyweights of all baseball players.</p>
+<pre class="r"><code>query&lt;-&quot;SELECT weight 
+FROM Master&quot;
 
-<h2 id="warning-removed-854-rows-containing-non-finite-values-stat-bin">Warning: Removed 854 rows containing non-finite values (stat_bin).</h2>
-&hellip;</p>
-    <a href="https://susandsblog.netlify.com/post/histograms/" title="Histograms">Read more &raquo;</a>
-</article>
+result&lt;-sqldf(query)</code></pre>
+<p>Now that we’ve selected our data we’re going to make it into a histogram.</p>
+<pre class="r"><code>ggplot()+
+  geom_histogram(data=result,aes(x=weight),color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
+  ggtitle(&quot;Baseball Player Bodyweights&quot;)+
+  xlab(&quot;Weight of Player&quot;)+
+  ylab(&quot;Number of Players&quot;)</code></pre>
+<pre><code>## Warning: Removed 854 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="/post/2017-10-20-histograms_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 
+            <ul class="share-buttons">
+    <li>Share this article:</li>
+    <li>
+        <a class="icon-facebook-squared" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fhistograms%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook"></a>
+    </li>
+    <li>
+        <a class="icon-twitter" href="https://twitter.com/share?text=Histograms&amp;url=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fhistograms%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Tweet this article"></a>
+    </li>
+    <li>
+        <a class="icon-gplus" href="https://plus.google.com/share?url=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fhistograms%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google&#43;"></a>
+    </li>
+    <li>
+        <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsusandsblog.netlify.com%2fpost%2fhistograms%2f&title=Histograms" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;" title="Share on Linkedin"></a>
+    </li>
+</ul>
+
+        </article>
         
-            <article class="post">
+        <div class="comments">
+            <h3>Comments</h3>
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
     
-<h1><a href="https://susandsblog.netlify.com/post/scatterplots/" title="Scatterplots">Scatterplots</a></h1>
-
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.06">2017.10.06</time>
-
     
-
-</span>
-</footer>
-
-    <p><p>library(Lahman)
-library(sqldf)</p>
-
-<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
-
-<h2 id="loading-required-package-proto">Loading required package: proto</h2>
-
-<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
-
-<p>library(ggplot2)</p>
-
-<h2 id="warning-package-39-ggplot2-39-was-built-under-r-version-3-4-2">Warning: package &#39;ggplot2&#39; was built under R version 3.4.2</h2>
-
-<p>Welcome to my very first post regarding data science! Let’s start the ball rolling with a look at Scatterplots (which is two sets of data compared to each other):
-query&lt;-&quot;SELECT sum(HR) as careerHR, sum(SO) as careerSO FROM Batting GROUP BY playerID
-HAVING sum(HR)&gt;400&quot;
-result&lt;-sqldf(query)
-So excited, in the line above we’re looking at the extracted data!</p>
-&hellip;</p>
-    <a href="https://susandsblog.netlify.com/post/scatterplots/" title="Scatterplots">Read more &raquo;</a>
-</article>
-
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "spf13" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
         
-            <article class="post">
-    
-<h1><a href="https://susandsblog.netlify.com/post/time-series/" title="Time Series">Time Series</a></h1>
-
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.06">2017.10.06</time>
-
-    
-
-</span>
-</footer>
-
-    <p><p>library(Lahman)
-library(sqldf)</p>
-
-<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
-
-<h2 id="loading-required-package-proto">Loading required package: proto</h2>
-
-<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
-
-<p>library(ggplot2)</p>
-
-<h2 id="warning-package-39-ggplot2-39-was-built-under-r-version-3-4-2">Warning: package &#39;ggplot2&#39; was built under R version 3.4.2</h2>
-
-<p>Now we’ll plot a Time Series Chart (which is two sets of data compared to each other but one set of data is time):
-query&lt;-&quot;SELECT HR,yearID FROM Batting
-WHERE playerID=&#39;ruthba01&#39;&quot;
-result&lt;-sqldf(query)
-ggplot()+
-geom_line(data=result,aes(x=yearID,y=HR))+
-ggtitle(&quot;Babe Ruth&#39;s Homeruns Over The Span of His Career&quot;)+
-xlab(&quot;Year&quot;)+
-ylab(&quot;Number of Homeruns&quot;)</p>
-&hellip;</p>
-    <a href="https://susandsblog.netlify.com/post/time-series/" title="Time Series">Read more &raquo;</a>
-</article>
-
-        
-            
-        
-        <div class="pagination">
-<nav>
-
-	<p class="counter">Page 1 of 1</p>
-
-
-</nav>
-</div>
-
     </main>
-
     <aside class="author">
   <img class="profile-image" src="https://susandsblog.netlify.com/img/profile-image.png" alt="Susan Yurkewicz" />
   <p class="name">by 

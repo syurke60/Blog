@@ -1,0 +1,29 @@
+---
+title: Histograms
+author: Susan Yurkewicz
+date: '2017-10-20'
+slug: histograms
+categories:
+  - R
+tags: []
+---
+
+
+
+<p>Histograms look at a single set of data. Many people think of histograms as a bar graph- that deal quantitative data.</p>
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
+<p>For an example we’ll create a histogram using all bodyweights of all baseball players.</p>
+<pre class="r"><code>query&lt;-&quot;SELECT weight 
+FROM Master&quot;
+
+result&lt;-sqldf(query)</code></pre>
+<p>Now that we’ve selected our data we’re going to make it into a histogram.</p>
+<pre class="r"><code>ggplot()+
+  geom_histogram(data=result,aes(x=weight),color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
+  ggtitle(&quot;Baseball Player Bodyweights&quot;)+
+  xlab(&quot;Weight of Player&quot;)+
+  ylab(&quot;Number of Players&quot;)</code></pre>
+<pre><code>## Warning: Removed 854 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="/post/2017-10-20-histograms_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>

@@ -46,6 +46,37 @@
         
             <article class="post">
     
+<h1><a href="https://susandsblog.netlify.com/post/histograms/" title="Histograms">Histograms</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.20">2017.10.20</time>
+
+    
+
+</span>
+</footer>
+
+    <p>Histograms look at a single set of data. Many people think of histograms as a bar graph- that deal quantitative data.
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+For an example we’ll create a histogram using all bodyweights of all baseball players.
+query&lt;-&quot;SELECT weight FROM Master&quot;
+result&lt;-sqldf(query)
+Now that we’ve selected our data we’re going to make it into a histogram.
+ggplot()+
+geom_histogram(data=result,aes(x=weight),color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
+ggtitle(&quot;Baseball Player Bodyweights&quot;)+
+xlab(&quot;Weight of Player&quot;)+
+ylab(&quot;Number of Players&quot;)</p>
+
+<h2 id="warning-removed-854-rows-containing-non-finite-values-stat-bin">Warning: Removed 854 rows containing non-finite values (stat_bin).</h2>
+&hellip;</p>
+    <a href="https://susandsblog.netlify.com/post/histograms/" title="Histograms">Read more &raquo;</a>
+</article>
+
+        
+            <article class="post">
+    
 <h1><a href="https://susandsblog.netlify.com/post/time-series/" title="Time Series">Time Series</a></h1>
 
 <footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.06">2017.10.06</time>
@@ -79,36 +110,6 @@ xlab(&quot;Year&quot;)+
 ylab(&quot;Number of Homeruns&quot;)</p>
 &hellip;</p>
     <a href="https://susandsblog.netlify.com/post/time-series/" title="Time Series">Read more &raquo;</a>
-</article>
-
-        
-            <article class="post">
-    
-<h1><a href="https://susandsblog.netlify.com/post/2015-07-23-r-rmarkdown/" title="Hello R Markdown">Hello R Markdown</a></h1>
-
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2015.07.23">2015.07.23</time>
-
-    &middot; Tagged in
-        
-        <a href="https://susandsblog.netlify.com/tags/r-markdown">r markdown</a>, 
-        
-        <a href="https://susandsblog.netlify.com/tags/plot">plot</a>, 
-        
-        <a href="https://susandsblog.netlify.com/tags/regression">regression</a>
-        
-    
-
-</span>
-</footer>
-
-    <p>R Markdown
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.
-You can embed an R code chunk like this:
-summary(cars)</p>
-
-<h2 id="speed-dist-min-4-0-min-2-00-1st-qu-12-0-1st-qu-26-00-median-15-0-median-36-00-mean-15-4-mean-42-98-3rd-qu">speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</h2>
-&hellip;</p>
-    <a href="https://susandsblog.netlify.com/post/2015-07-23-r-rmarkdown/" title="Hello R Markdown">Read more &raquo;</a>
 </article>
 
         
